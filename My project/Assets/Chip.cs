@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Chip : MonoBehaviour
 {
-    public Transform spawnPoint;
-    public float timer;
-    public GameObject chipPrefab;
-    private Vector3 offset;
     // Start is called before the first frame update
+    public float timer;
     void Start()
     {
-        
+        this.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     // Update is called once per frame
@@ -19,12 +16,10 @@ public class Chip : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if(timer <= 0)
+        if(timer < 8)
         {
-            var x = Random.Range(-2, 2);
-            var y = Random.Range(-2, 2);
-            offset = new Vector3(x, y, 0);
-            Instantiate(chipPrefab, spawnPoint.position + offset, chipPrefab.transform.rotation);
+            this.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+            timer = 100;
         }
     }
 }
