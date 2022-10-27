@@ -46,7 +46,7 @@ public class Shoes : MonoBehaviour
     {
         if(collision.gameObject.tag == "Chip")
         {
-            Debug.Log("asdf");
+           
            
         }
 
