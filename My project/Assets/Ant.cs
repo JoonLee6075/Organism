@@ -15,6 +15,7 @@ public class Ant : MonoBehaviour
     private float speed = 2f;
     private float timer = 2f;
     private float lifeSpand = 15;
+    public AudioClip eatingsound;
 
 
     private void Awake()
@@ -72,7 +73,7 @@ public class Ant : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetBool("Eaten", true);
             isEating = true;
             GameObject.FindGameObjectWithTag("Spawner").GetComponent<AntSpawn>().Spawn();
-            Debug.Log("spawn");
+            SoundManager.Instance.PlaySound(eatingsound);
             
 
         }

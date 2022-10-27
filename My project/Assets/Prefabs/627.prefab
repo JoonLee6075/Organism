@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {fileID: 0}
+  stepSound: {fileID: 8300000, guid: 0a372a29575935742b04f7ae38b30d02, type: 3}
 --- !u!50 &8037614952402257832
 Rigidbody2D:
   serializedVersion: 4

@@ -9,6 +9,8 @@ public class Shoes : MonoBehaviour
     private float lerpDuration = 120f;
     private float startValue = 0;
     private float timer = 2.1f;
+    public AudioClip stepSound;
+    private float timer2 = 1.5f;
 
     void Start()
     {
@@ -20,9 +22,15 @@ public class Shoes : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        timer2 -= Time.deltaTime;
         if(timer <= 0)
         {
             Destroy(gameObject);
+        }
+        if(timer2 < 0)
+        {
+            PlayStepSound();
+            timer2 = 100;
         }
        
     }
@@ -54,5 +62,10 @@ public class Shoes : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    public void PlayStepSound()
+    {
+        SoundManager.Instance.PlaySound(stepSound);
     }
 }

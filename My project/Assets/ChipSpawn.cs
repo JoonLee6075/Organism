@@ -9,6 +9,9 @@ public class ChipSpawn : MonoBehaviour
     public GameObject chipPrefab;
     private Vector3 offset;
     public AudioClip spawnsound;
+    public float timer2;
+    public GameObject antPrefab;
+    public GameObject antSpawn;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,13 @@ public class ChipSpawn : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        timer2 -= Time.deltaTime;
+
+        if(timer2 <= 0)
+        {
+            Instantiate(antPrefab, antSpawn.transform.position, antPrefab.transform.rotation);
+            timer2 = 10;
+        }
 
         if(timer <= 0)
         {
