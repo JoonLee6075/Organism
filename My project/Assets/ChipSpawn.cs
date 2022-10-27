@@ -21,8 +21,8 @@ public class ChipSpawn : MonoBehaviour
 
         if(timer <= 0)
         {
-            var x = Random.Range(-2, 2);
-            var y = Random.Range(-2, 2);
+            var x = Random.Range(-2f, 2f);
+            var y = Random.Range(-2f, 2f);
             offset = new Vector3(x, y, 0);
             Instantiate(chipPrefab, spawnPoint.position + offset, chipPrefab.transform.rotation);
             timer = 3;
